@@ -11,6 +11,8 @@ upgrades = {
 }
 sheepDogCostMultiplier = 1
 
+
+
 function drawUpgradeCards() {
     let template = ''
 
@@ -36,13 +38,27 @@ function drawUpgradeCards() {
     }
 
     document.getElementById("upgrade-card-container").innerHTML = template
-}
 
+
+    for (item in upgrades) {
+        cardId = upgrades[item]['id']
+        let card = document.getElementById(cardId)
+        let cardButtonId = cardId + '-button'
+        let cardButton = document.getElementById(cardButtonId)
+        if (upgrades[item]['cost'] >= count) {
+            card.classList.add("cannot-afford")
+            cardButton.disabled = true
+        } else {
+            card.classList.remove("cannot-afford")
+            cardButton.disabled = false
+        }
+    }
+}
 
 
 function updateCount() {
     document.getElementById("count-display").innerHTML = count
-    updateBuyCards()
+    drawUpgradeCards()
 }
 
 function oneClick() {
@@ -50,34 +66,14 @@ function oneClick() {
     updateCount()
 }
 
-function updateBuyCards() {
-    for (item in upgrades) {
-        cardId = upgrades[item]['id']
-        let card = document.getElementById(cardId)
-        let cardButtonId = cardId + '-button'
 
-
-        let cardButton = document.getElementById(cardButtonId)
-        console.log(cardButton);
-        if (upgrades[item]['cost'] >= count) {
-            card.classList.add("cannot-afford")
-            cardButton.disabled = true
-        } else {
-            console.log('else reached');
-            card.classList.remove("cannot-afford")
-            card.button.disabled = false
-
-        }
-    }
-    console.log('done');
-}
 
 function sheepDog() {
     count -= upgrades['sheepDog']['cost']
     updateCount()
     upgrades['sheepDog']['cost'] += Math.floor(upgrades['sheepDog']['cost'] * sheepDogCostMultiplier)
     clickAmount += 10
-
+    drawUpgradeCards()
 
     document.getElementById("sheep-dog-upgrade-display").innerHTML = upgrades['sheepDog']['cost']
 }
@@ -92,4 +88,4 @@ function dogFood() {
 }
 
 drawUpgradeCards()
-updateBuyCards()
+
