@@ -118,15 +118,19 @@ footer {
     display: none !important;
 }
 .upgrade-button {
+    background-color: var(--white);
     transition: all 150ms;
     margin: auto !important;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--red) !important;
     
 }
 .upgrade-button:enabled {
     transition: all 100ms;
-    border-style: solid;
-    border-width: 3px;
-    border-color: var(--light-blue);
+    
+    border-width: 3px !important;
+    border-color: var(--light-blue) !important;
 }
 .upgrade-button:enabled:hover {
     transform: scale(4);
