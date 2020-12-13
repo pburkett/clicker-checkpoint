@@ -6,6 +6,7 @@
     --blue: #1D3557;
     --blue-low-opacity: rgba(29, 53, 87, .5);
     --red: #E63946;
+    --red-low-opacity: rgba(230, 57, 70, .5);
 }
 
 
@@ -47,7 +48,7 @@ footer {
     margin: auto;
 }
 .cannot-afford {
-     filter: drop-shadow(0px 0px 20px var(--red)  ) !important;
+     filter: drop-shadow(0px 0px 20px var(--red-low-opacity)  ) !important;
      border-color: var(--red) !important;
 }
 .upgrade-image {
@@ -69,13 +70,15 @@ footer {
     margin: auto;
 }
 #sheep-img {
-    transition: all 100ms;
+    transition: all 150ms;
 }
 #sheep-img:active {
+    filter: drop-shadow(1px 1px 10px rgba(0,0,0,.5)) !important;
     transform: scale(1.15);
     transition: all 100ms;
 }
 .sheep-img-scale {
+    filter: drop-shadow(1px 1px 10px rgba(0,0,0,.5)) !important;
     transform: scale(1.15);
 }
 .upgrade-description-container {
@@ -119,9 +122,21 @@ footer {
     margin: auto !important;
     
 }
+.upgrade-button:enabled {
+    transition: all 100ms;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--light-blue);
+}
 .upgrade-button:enabled:hover {
-
-    box-shadow: 0px 0px 8px 5px var(--blue-low-opacity);
+    transform: scale(4);
+    transition: all 100ms;
+    box-shadow: 2px 2px 15px 4px var(--blue-low-opacity) !important;
     transform: scale(1.2);
     transition: all 150ms;
+}
+
+.card-shadow {
+    transition: all 100ms;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, .5);
 }

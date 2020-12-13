@@ -35,7 +35,7 @@ function drawUpgradeCards() {
             `
             <div class="col upgrade-card mb-2">
 
-                <div id="${upgrades[upgradeKey]['id']}" class="${(upgrades[upgradeKey]['availability'] ? 'cannot-afford ' : '')}row align-self-center justify-content-center upgrade-image" 
+                <div id="${upgrades[upgradeKey]['id']}" class="${(upgrades[upgradeKey]['availability'] ? 'cannot-afford ' : '')}row align-self-center justify-content-center upgrade-image  card-shadow" 
                     style="background-image: url(${upgrades[upgradeKey]['img']})">
                     <div  class="col upgrade-description-container" id="upgrade-description-container-${upgrades[upgradeKey]['id']}">
                         <h2 class="text-center upgrade-description-header default-cursor">${upgrades[upgradeKey]['name']}</h2>
@@ -47,7 +47,7 @@ function drawUpgradeCards() {
                     </div>
                 </div>
                 <div class="d-flex flex-direction-column w-100 align-items-center mt-2">
-                    <button ${upgrades[upgradeKey]["availability"]} id="${upgrades[upgradeKey]['id']}-button" onclick="${upgradeKey}()" type="button" class="mb-1 upgrade-button align-self-center">Buy</button>
+                    <button ${upgrades[upgradeKey]["availability"]} id="${upgrades[upgradeKey]['id']}-button" onclick="${upgradeKey}()" type="button" class="mb-1 card-shadow upgrade-button align-self-center">Buy</button>
                 </div>
                 <div class="row upgrade-description">
                     
