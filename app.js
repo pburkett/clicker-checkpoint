@@ -60,7 +60,7 @@ function sheepDog() {
     count -= upgrades['sheepDog']['cost']
     updateCount()
     passiveGenerationAmount += 10
-    upgrades['sheepDog']['cost'] += Math.floor(upgrades['sheepDog']['cost']) * 1
+    upgrades['sheepDog']['cost'] += Math.floor(upgrades['sheepDog']['cost'] * sheepDogCostMultiplier)
 
 
 
