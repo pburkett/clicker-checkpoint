@@ -36,6 +36,7 @@ footer {
 }
 .cannot-afford {
      filter: drop-shadow(0px 0px 20px red  ) !important;
+     border-color: red !important;
 }
 .upgrade-image {
     background-size: contain;
@@ -46,7 +47,7 @@ footer {
     margin-right: 0px !important;
     border-style: solid;
     border-width: 5px;
-    border-color: gray;
+    border-color: green;
 }
 .upgrade-card {
     width: fit-content;
