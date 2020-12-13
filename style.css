@@ -1,21 +1,30 @@
+:root {
+    --white: #F1FAEE;
+    --light-gray: #A8DADC;
+    --light-blue: #457B9D;
+    --blue: #1D3557;
+    --red: #E63946;
+}
+
+
 body {
-    min-height: 100vh;
+    min-height: 50vh;
+    max-height: 100vh;
     flex-direction: column;
     display: flex;
 }
 main {
-    background-color: rgb(230, 230, 230);
+    background-color: var(--white);
     flex-grow: 1;
-    
     
 }
 header {
     height: 10vh;
-    background-color: teal;
+    background-color: var(--light-blue);
 }
 footer {
-    height: 10vh;
-    background-color: teal;
+    height: 5vh;
+    background-color: var(--light-blue) !important;
 }
 .upgrade-format {
     width: 200px;
@@ -30,13 +39,13 @@ footer {
     width: fit-content;
     border-style: solid;
     border-width: 5px;
-    border-color: teal;
+    border-color: var(--blue);
     padding: 4px 8px 4px 8px;
     margin: auto;
 }
 .cannot-afford {
-     filter: drop-shadow(0px 0px 20px red  ) !important;
-     border-color: red !important;
+     filter: drop-shadow(0px 0px 20px var(--red)  ) !important;
+     border-color: var(--red) !important;
 }
 .upgrade-image {
     background-size: contain;
@@ -44,14 +53,25 @@ footer {
     background-position: center;
     width: 200px;
     height: 200px;
-    margin-right: 0px !important;
+    margin: auto;
     border-style: solid;
     border-width: 5px;
-    border-color: green;
+    border-color: var(--light-blue);
 }
 .upgrade-card {
     width: fit-content;
 }
 .upgrade-description {
     width: 200px !important;
+    margin: auto;
+}
+#sheep-img {
+    transition: all 100ms;
+}
+#sheep-img:active {
+    transform: scale(1.15);
+    transition: all 100ms;
+}
+.sheep-img-scale {
+    transform: scale(1.15);
 }
