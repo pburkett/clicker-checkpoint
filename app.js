@@ -37,7 +37,7 @@ function drawUpgradeCards() {
 
                 <div id="${upgrades[upgradeKey]['id']}" class="${(upgrades[upgradeKey]['availability'] ? 'cannot-afford ' : '')}row align-self-center justify-content-center upgrade-image" 
                     style="background-image: url(${upgrades[upgradeKey]['img']})">
-                    <div  class="col upgrade-description-container">
+                    <div  class="col upgrade-description-container" id="upgrade-description-container-${upgrades[upgradeKey]['id']}">
                         <h2 class="text-center upgrade-description-header default-cursor">${upgrades[upgradeKey]['name']}</h2>
                         <p class="text-center upgrade-description default-cursor">${upgrades[upgradeKey]['description']}</p>
                         <h4 class="text-center">Cost:${upgrades[upgradeKey]['cost']}</h4>
@@ -140,9 +140,17 @@ function unlockUpgrades() {
     }
 }
 
+function maxedUpgrade(upgradeKey) {
+    console.log(upgradeKey);
+    console.log(upgrades[upgradeKey]);
+    id = `upgrade-description-container-${upgrades[upgradeKey]['id']}`
+    console.log(id);
+    document.getElementById('id').innerHTML =
+        '<img src="https://img2.pngio.com/black-x-png-7-png-image-black-x-png-1600_1600.png"></img>'
+}
 drawUpgradeCards()
 
-// let increment = setInterval(() => incrementer(), incrementSpeed)
+let increment = setInterval(() => incrementer(), incrementSpeed)
 
 function goFullScreen() {
     document.getElementById("immersive-mode-display").classList.add("display-none")
