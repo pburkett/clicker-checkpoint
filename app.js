@@ -33,17 +33,24 @@ function drawUpgradeCards() {
         template +=
             /*html*/
             `
-            <div class="col upgrade-card">
+            <div class="col upgrade-card mb-2">
 
-                <div id="${upgrades[upgradeKey]['id']}" class="${(upgrades[upgradeKey]['availability'] ? 'cannot-afford ' : '')}row align-self-center justify-content-center upgrade-image" style="background-image: url(${upgrades[upgradeKey]['img']})">
-                    <div class="flex-column justify-self-center d-flex justify-content-end align-items-center">
-                        
-                        <button ${upgrades[upgradeKey]["availability"]} id="${upgrades[upgradeKey]['id']}-button" onclick="${upgradeKey}()" type="button" class="mb-1">Buy ${upgrades[upgradeKey]['name']}</button>
-                        <h4>Cost:${upgrades[upgradeKey]['cost']}</h4>
+                <div id="${upgrades[upgradeKey]['id']}" class="${(upgrades[upgradeKey]['availability'] ? 'cannot-afford ' : '')}row align-self-center justify-content-center upgrade-image" 
+                    style="background-image: url(${upgrades[upgradeKey]['img']})">
+                    <div  class="col upgrade-description-container">
+                        <h2 class="text-center upgrade-description-header default-cursor">${upgrades[upgradeKey]['name']}</h2>
+                        <p class="text-center upgrade-description default-cursor">${upgrades[upgradeKey]['description']}</p>
+                        <h4 class="text-center">Cost:${upgrades[upgradeKey]['cost']}</h4>
+                    </div>
+                    <div class="flex-column justify-self-center d-flex justify-content-end align-items-center default-cursor">
+
                     </div>
                 </div>
+                <div class="d-flex flex-direction-column w-100 align-items-center mt-2">
+                    <button ${upgrades[upgradeKey]["availability"]} id="${upgrades[upgradeKey]['id']}-button" onclick="${upgradeKey}()" type="button" class="mb-1 upgrade-button align-self-center">Buy</button>
+                </div>
                 <div class="row upgrade-description">
-                    <p class="col text-center ">${upgrades[upgradeKey]['description']}</p>
+                    
                 </div>
                 </div>
             `/*html*/
@@ -135,15 +142,14 @@ function unlockUpgrades() {
 
 drawUpgradeCards()
 
-let increment = setInterval(() => incrementer(), incrementSpeed)
+// let increment = setInterval(() => incrementer(), incrementSpeed)
 
-document.addEventListener("dblclick", () => {
-    document.getElementById("immersive-mode-display").innerText = ''
+function goFullScreen() {
+    document.getElementById("immersive-mode-display").classList.add("display-none")
     document.documentElement.requestFullscreen().catch((e) => {
         console.log(e);
-
     })
-});
+}
 
 
 

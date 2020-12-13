@@ -1,8 +1,10 @@
 :root {
     --white: #F1FAEE;
     --light-gray: #A8DADC;
+    --light-gray-low-opacity: rgba(168, 218, 220, .5);
     --light-blue: #457B9D;
     --blue: #1D3557;
+    --blue-low-opacity: rgba(29, 53, 87, .5);
     --red: #E63946;
 }
 
@@ -24,7 +26,7 @@ header {
     background-color: var(--light-blue);
 }
 footer {
-    height: 5vh;
+    height: 10vh;
     background-color: var(--light-blue) !important;
 }
 .upgrade-format {
@@ -76,6 +78,48 @@ footer {
 .sheep-img-scale {
     transform: scale(1.15);
 }
+.upgrade-description-container {
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+   transition: 300ms;
+}
+.upgrade-description-container:hover {
+    
+    transition: all 250ms;
+    background-color: var(--light-gray-low-opacity);
+    opacity: 1;
+}
+.upgrade-description {
+    width: 160px !important;
+    font-weight: 400;   
+}
+.default-cursor {
+    cursor: default !important;
+}
 #sheep-column {
     width: fit-content !important;
+}
+#immersive-mode-display {
+    height: fit-content;
+    width: fit-content;
+    padding: 2px 5px 2px 5px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--blue);
+    font-weight: 600;
+}
+.display-none {
+    display: none !important;
+}
+.upgrade-button {
+    transition: all 150ms;
+    margin: auto !important;
+    
+}
+.upgrade-button:enabled:hover {
+    box-shadow: 0px 0px 8px 5px var(--blue-low-opacity);
+    transform: scale(1.2);
+    transition: all 150ms;
 }
