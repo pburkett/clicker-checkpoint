@@ -9,11 +9,12 @@
 
 body {
     min-height: 50vh;
-    max-height: 100vh;
+    
     flex-direction: column;
     display: flex;
 }
 main {
+    min-height: 100vh;
     background-color: var(--white);
     flex-grow: 1;
     
@@ -74,4 +75,7 @@ footer {
 }
 .sheep-img-scale {
     transform: scale(1.15);
+}
+#sheep-column {
+    width: fit-content !important;
 }

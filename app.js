@@ -13,7 +13,7 @@ upgrades = {
 }
 lockedUpgrades = {
     eyeGlasses: { name: "Counting Specs", cost: 300, id: "eye-glasses-upgrade", img: "glasses-image.png", description: "The better you see, the better you count!", upgradeLevel: 0, availability: "disabled", unlocker: "runningShoes", unlockLevel: "10" },
-    sheedSpeep: { name: "Sheep Speed", cost: 500, id: "sheep-speed-upgrade", img: "sheep-speed-image.png", description: "If the sheep are faster, everything is faster", upgradeLevel: 0, availability: "disabled", unlocker: "sheepDog", unlockLevel: "15" }
+    sheepSpeed: { name: "Sheep Speed", cost: 500, id: "sheep-speed-upgrade", img: "sheep-speed-image.png", description: "If the sheep are faster, everything is faster", upgradeLevel: 0, availability: "disabled", unlocker: "sheepDog", unlockLevel: "15" }
 }
 
 var sheepDogCostMultiplier = 1
@@ -43,7 +43,7 @@ function drawUpgradeCards() {
                     </div>
                 </div>
                 <div class="row upgrade-description">
-                    <h5 class="col text-center ">${upgrades[upgradeKey]['description']}</h5>
+                    <p class="col text-center ">${upgrades[upgradeKey]['description']}</p>
                 </div>
                 </div>
             `/*html*/
@@ -66,12 +66,9 @@ function sheepDog() {
     upgrades['sheepDog']['upgradeLevel'] += 1
     console.log(upgrades['sheepDog']['upgradeLevel']);
     count -= upgrades['sheepDog']['cost']
-    updateCount()
     passiveGenerationAmount += 1
     upgrades['sheepDog']['cost'] += Math.floor(upgrades['sheepDog']['cost'] * sheepDogCostMultiplier)
-
-
-
+    drawUpgradeCards()
 }
 function runningShoes() {
     upgrades['runningShoes']['upgradeLevel'] += 1
@@ -88,16 +85,25 @@ function dogFood() {
         upgrades['dogFood']['upgradeLevel'] += 1
         sheepDogCostMultiplier -= .05
         count -= upgrades.dogFood.cost
-        updateCount()
+        drawUpgradeCards()
     }
 }
 
 function eyeGlasses() {
     upgrades['eyeGlasses']['upgradeLevel'] += 1
     count -= upgrades['eyeGlasses']['cost']
-    updateCount()
+    drawUpgradeCards()
     clickAmount += 25
+}
 
+function sheepSpeed() {
+    if (incrementSpeed > 500) {
+        upgrades['sheepSpeed']['upgradeLevel'] += 1
+        count -= upgrades['sheepSpeed']['cost']
+        drawUpgradeCards()
+        incrementSpeed -= 500
+        let increment = setInterval(() => incrementer(), incrementSpeed)
+    }
 }
 
 function incrementer() {
@@ -107,7 +113,7 @@ function incrementer() {
         document.getElementById("sheep-img").classList.add("sheep-img-scale")
         setTimeout(() => {
             document.getElementById("sheep-img").classList.remove("sheep-img-scale")
-        }, 400);
+        }, 100);
     }
 }
 
@@ -131,6 +137,13 @@ drawUpgradeCards()
 
 let increment = setInterval(() => incrementer(), incrementSpeed)
 
+document.addEventListener("dblclick", () => {
+    document.getElementById("immersive-mode-display").innerText = ''
+    document.documentElement.requestFullscreen().catch((e) => {
+        console.log(e);
+
+    })
+});
 
 
 
