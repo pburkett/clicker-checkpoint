@@ -102,9 +102,9 @@ function runningShoes() {
 }
 
 function dogFood() {
+    count -= upgrades.dogFood.cost
     upgrades['dogFood']['cost'] += Math.floor(upgrades['dogFood']['cost'] * .5)
     upgrades['dogFood']['upgradeLevel'] += 1
-    count -= upgrades.dogFood.cost
     updateCount()
 
 }
