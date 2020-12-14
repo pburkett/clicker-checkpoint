@@ -62,6 +62,7 @@ footer {
     border-width: 5px;
     border-color: var(--light-blue);
 }
+
 .upgrade-card {
     width: fit-content;
 }
@@ -93,7 +94,7 @@ footer {
     
     transition: all 250ms;
     background-color: var(--light-gray-low-opacity);
-    opacity: 1;
+    opacity: 1 !important;
 }
 .upgrade-description {
     width: 160px !important;
@@ -118,6 +119,7 @@ footer {
     display: none !important;
 }
 .upgrade-button {
+    font-size: 20pt;
     background-color: var(--white);
     transition: all 150ms;
     margin: auto !important;
@@ -143,4 +145,15 @@ footer {
 .card-shadow {
     transition: all 100ms;
     box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, .5);
+}
+.maxed-upgrade {
+    background-image: url("x-image.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .8;
+}
+.text-shadow {
+    
+    text-shadow: 0px 0px 3px var(--white) !important;
 }
