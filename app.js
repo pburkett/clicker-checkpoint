@@ -69,6 +69,12 @@ function drawUpgradeCards() {
 
 
 function updateCount() {
+    if (count >= 1000000) {
+        document.getElementById("sheep-img").src = "pink-sheep-image.png"
+        upgrades['sheepDog']['img'] = "wolf-image.png"
+        upgrades['runningShoes']['img'] = "boots-image.png"
+        upgrades['dogFood']['img'] = "beef-image.png"
+    }
     document.getElementById("count-display").innerHTML = count + ' Sheep'
     drawUpgradeCards()
 }
